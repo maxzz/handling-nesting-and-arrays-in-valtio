@@ -1,6 +1,7 @@
 import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
+import { ArrayData } from "../proxies";
 
 function Intro() {
     return (<>
@@ -25,7 +26,7 @@ function Intro() {
     </>);
 }
 
-export const RootArrayWrong1 = ({ data }) => {
+export const RootArrayWrong1 = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
     return (
         <>

@@ -1,19 +1,18 @@
 import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 
-export const Root = ({ data }) => {
+export const WrappedInput = ({ data, prop }: { data: Record<string, string>; prop: string; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
-        <div>
-            <label>Root ({cnt}) </label>
+        <>
+            <span>({cnt})</span>
             <input
-                value={s.rootInfo}
+                value={s[prop]}
                 onChange={(e) => {
-                    data.rootInfo = e.currentTarget.value;
+                    data[prop] = e.currentTarget.value;
                 }}
             />
-            <Level1 data={data.level1} />
-        </div>
+        </>
     );
 };
