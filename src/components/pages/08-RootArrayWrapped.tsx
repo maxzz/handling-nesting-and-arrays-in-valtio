@@ -16,18 +16,7 @@ const rootWrapped = proxy({
 
 export type RootWrapped = typeof rootWrapped;
 
-const RootWrapped = ({ data }: { data: RootWrapped; }) => {
-    const cnt = useRenderCounter();
-    return (
-        <div>
-            <label>Root ({cnt}) </label>
-            <WrappedInput data={data} prop="rootInfo" />
-            <Level1Wrapped data={data.level1} />
-        </div>
-    );
-};
-
-const Level1Wrapped = ({ data }: { data: RootWrapped; }) => {
+const Level1Wrapped = ({ data }: { data: RootWrapped["level1"]; }) => {
     const cnt = useRenderCounter();
     return (
         <>
@@ -38,13 +27,24 @@ const Level1Wrapped = ({ data }: { data: RootWrapped; }) => {
     );
 };
 
-const Level2Wrapped = ({ data }: { data: RootWrapped; }) => {
+const Level2Wrapped = ({ data }: { data: RootWrapped["level1"]["level2"]; }) => {
     const cnt = useRenderCounter();
     return (
         <>
             <label>Level2 ({cnt}) </label>
             <WrappedInput data={data} prop="level2Info" />
         </>
+    );
+};
+
+const RootWrapped = ({ data }: { data: RootWrapped; }) => {
+    const cnt = useRenderCounter();
+    return (
+        <div>
+            <label>Root ({cnt}) </label>
+            <WrappedInput data={data} prop="rootInfo" />
+            <Level1Wrapped data={data.level1} />
+        </div>
     );
 };
 
