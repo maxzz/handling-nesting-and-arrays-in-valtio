@@ -4,19 +4,24 @@ export const root = proxy({
     rootInfo: "bla bla",
     level1: {
         level1Info: "bla blu",
+
         level2: {
             level2Info: "bla blo"
         }
     }
 });
 
+export type RootData = typeof root;
+
 const arrayData = {
     objects: [
         {
             key: 0,
             rootInfo: "bla bla",
+
             level1: {
                 level1Info: "bla blu",
+
                 level2: {
                     level2Info: "bla blo"
                 }
@@ -25,8 +30,10 @@ const arrayData = {
         {
             key: 1,
             rootInfo: "bla bla",
+
             level1: {
                 level1Info: "bla blu",
+                
                 level2: {
                     level2Info: "bla blo"
                 }

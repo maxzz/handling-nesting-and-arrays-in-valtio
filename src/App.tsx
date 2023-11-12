@@ -4,6 +4,7 @@ import React from "react";
 import { proxy, useSnapshot } from "valtio";
 import { useRenderCounter } from "./components/utils";
 import {
+    ArrayData,
     root,
     rootArray,
     rootArray2,
@@ -12,37 +13,9 @@ import {
     rootArrayWrapped
 } from "./components/proxies";
 import { Introduction, Root, RootArrayWrong1 } from "./components/pages";
+import { RootArrayWrong2 } from "./components/pages/03-RootArrayWrong2";
 
-const RootArrayWrong2 = ({ data }) => {
-    const cnt = useRenderCounter();
-    const s = useSnapshot(data);
-    return (
-        <>
-            <h2>Array ({cnt})</h2>
-            {s.objects.map((o, i) => (
-                <Root data={data.objects[i]} key={i} />
-            ))}
-            <button
-                onClick={() => {
-                    data.objects.push({
-                        key: data.objects.length,
-                        rootInfo: "bla bla",
-                        level1: {
-                            level1Info: "bla blu",
-                            level2: {
-                                level2Info: "bla blo"
-                            }
-                        }
-                    });
-                }}
-            >
-                Add
-            </button>
-        </>
-    );
-};
-
-const RootArray = ({ data }) => {
+const RootArray = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
@@ -71,7 +44,7 @@ const RootArray = ({ data }) => {
     );
 };
 
-const RootArray2 = ({ data }) => {
+const RootArray2 = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
@@ -100,7 +73,7 @@ const RootArray2 = ({ data }) => {
     );
 };
 
-const WrappedInput = ({ data, prop }) => {
+const WrappedInput = ({ data, prop }: { data: ComplexData; prop: string; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
@@ -121,10 +94,12 @@ const complexData = {
     field2: "B"
 };
 
-const complexData1 = proxy(JSON.parse(JSON.stringify(complexData)));
-const complexData2 = proxy(JSON.parse(JSON.stringify(complexData)));
+export type ComplexData = typeof complexData;
 
-const ComplexObject = ({ data }) => {
+const complexData1 = proxy<ComplexData>(JSON.parse(JSON.stringify(complexData)));
+const complexData2 = proxy<ComplexData>(JSON.parse(JSON.stringify(complexData)));
+
+const ComplexObject = ({ data }: { data: ComplexData; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
@@ -144,7 +119,7 @@ const ComplexObject = ({ data }) => {
     );
 };
 
-const ComplexObjectWithWrappedInput = ({ data }) => {
+const ComplexObjectWithWrappedInput = ({ data }: { data: ComplexData; }) => {
     const cnt = useRenderCounter();
     return (
         <div>
@@ -167,7 +142,9 @@ const rootWrapped = proxy({
     }
 });
 
-const RootWrapped = ({ data }) => {
+export type RootWrapped = typeof rootWrapped;
+
+const RootWrapped = ({ data }: { data: RootWrapped; }) => {
     const cnt = useRenderCounter();
     return (
         <div>
@@ -178,7 +155,7 @@ const RootWrapped = ({ data }) => {
     );
 };
 
-const Level1Wrapped = ({ data }) => {
+const Level1Wrapped = ({ data }: { data: RootWrapped; }) => {
     const cnt = useRenderCounter();
     return (
         <>
@@ -189,7 +166,7 @@ const Level1Wrapped = ({ data }) => {
     );
 };
 
-const Level2Wrapped = ({ data }) => {
+const Level2Wrapped = ({ data }: { data: RootWrapped; }) => {
     const cnt = useRenderCounter();
     return (
         <>
@@ -199,7 +176,7 @@ const Level2Wrapped = ({ data }) => {
     );
 };
 
-const RootArrayWrapped = ({ data }) => {
+const RootArrayWrapped = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
@@ -235,14 +212,9 @@ export default function App() {
             <Introduction />
             <Root data={root} />
             <RootArrayWrong1 data={rootArrayw1} />
-            <h2> Wrong 2 - responsive but renders everything on every change </h2>
-            <p>
-                Option 2 is to map on the objects in the snapshot and pass the
-                appropiate proxy to the child container (via the index). This also looks
-                "nice" from a JS perspective but it causes a problem that now any change
-                to any objects makes the entire component tree to render.
-            </p>
+
             <RootArrayWrong2 data={rootArrayw2} />
+
             <h2> Correct 1 - Using only the length from the snapshot </h2>
             <p>
                 If we just depend on the length from the snapshot we will be reactive on
@@ -250,6 +222,7 @@ export default function App() {
                 individually.
             </p>
             <RootArray data={rootArray} />
+
             <h2> Correct 2 - Using a key from the objects </h2>
             <p>
                 React recommends using "key" props for elements in array so it can be
@@ -262,6 +235,7 @@ export default function App() {
                 redner unneededly
             </p>
             <RootArray2 data={rootArray2} />
+
             <h1> Complex objects (multiple editable elements) </h1>
             <p>
                 So far we handled only objects with 1 primitive field and one nested
@@ -288,6 +262,7 @@ export default function App() {
                 changed are rendered
             </p>
             <ComplexObjectWithWrappedInput data={complexData2} />
+
             <h1>Revisiting "Simple" objects</h1>
             <p>
                 Going back to our "simple" objects in the top of this page, we can now
@@ -297,6 +272,7 @@ export default function App() {
                 array rendering:
             </p>
             <RootArrayWrapped data={rootArrayWrapped} />
+
         </>
     );
 }

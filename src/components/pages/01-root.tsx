@@ -1,7 +1,8 @@
 import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
+import { RootData } from "../proxies";
 
-const Level1 = ({ data }) => {
+const Level1 = ({ data }: {data: RootData["level1"]}) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
@@ -18,7 +19,7 @@ const Level1 = ({ data }) => {
     );
 };
 
-const Level2 = ({ data }) => {
+const Level2 = ({ data }: {data: RootData["level1"]["level2"]}) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
@@ -34,7 +35,7 @@ const Level2 = ({ data }) => {
     );
 };
 
-export const Root = ({ data }) => {
+export const Root = ({ data }: {data: RootData}) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (

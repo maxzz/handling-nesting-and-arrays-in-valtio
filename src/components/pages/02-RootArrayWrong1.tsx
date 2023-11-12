@@ -30,6 +30,7 @@ export const RootArrayWrong1 = ({ data }) => {
     return (
         <>
             <Intro />
+
             <h2>Array ({cnt})</h2>
             {data.objects.map((o) => (
                 <Root data={o} key={o.key} />
