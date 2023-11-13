@@ -1,8 +1,8 @@
 import { proxy, useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
-import { ArrayData } from "../proxies";
-import { Input, PartIntro, gridChild, gridParent } from "../ui";
+import { TextDataArray } from "../proxies";
+import { Input, PartIntro, Section, gridChild, gridParent } from "../ui";
 
 function Intro() {
     return (<>
@@ -39,27 +39,28 @@ export const complexData2 = proxy<ComplexData>(JSON.parse(JSON.stringify(complex
 export const ComplexObject = ({ data }: { data: ComplexData; }) => {
     const cnt = useRenderCounter();
     const snap = useSnapshot(data);
-    return (<>
-        <Intro />
+    return (
+        <Section>
+            <Intro />
 
-        <h2>Complex objects ({cnt})</h2>
+            <h2>Complex objects ({cnt})</h2>
 
-        <div className={gridParent}>
-            <Input
-                label="field1"
-                className={gridChild}
-                value={snap.field1}
-                onChange={(e) => data.field1 = e.currentTarget.value}
-            />
+            <div className={gridParent}>
+                <Input
+                    label="field1"
+                    className={gridChild}
+                    value={snap.field1}
+                    onChange={(e) => data.field1 = e.currentTarget.value}
+                />
 
-            <Input
-                label="field2"
-                className={gridChild}
-                value={snap.field2}
-                onChange={(e) => data.field2 = e.currentTarget.value}
-            />
-        </div>
+                <Input
+                    label="field2"
+                    className={gridChild}
+                    value={snap.field2}
+                    onChange={(e) => data.field2 = e.currentTarget.value}
+                />
+            </div>
 
-    </>
+        </Section>
     );
 };

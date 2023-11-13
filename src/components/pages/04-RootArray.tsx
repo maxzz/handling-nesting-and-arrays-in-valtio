@@ -1,8 +1,8 @@
 import { useSnapshot } from "valtio";
-import { Button, PartIntro } from "../ui";
+import { Button, PartIntro, Section } from "../ui";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
-import { ArrayData } from "../proxies";
+import { TextDataArray } from "../proxies";
 
 function Intro() {
     return (
@@ -28,11 +28,11 @@ const addNew = (idx: number) => ({
     }
 });
 
-export const RootArray = ({ data }: { data: ArrayData; }) => {
+export const RootArray = ({ data }: { data: TextDataArray; }) => {
     const cnt = useRenderCounter();
     const snap = useSnapshot(data);
     return (
-        <>
+        <Section>
             <Intro />
 
             <h2>Array ({cnt})</h2>
@@ -44,6 +44,6 @@ export const RootArray = ({ data }: { data: ArrayData; }) => {
             <Button onClick={() => data.objects.push(addNew(data.objects.length))}>
                 Add
             </Button>
-        </>
+        </Section>
     );
 };

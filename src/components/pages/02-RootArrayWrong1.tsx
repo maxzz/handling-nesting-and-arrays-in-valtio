@@ -1,13 +1,12 @@
 import { useSnapshot } from "valtio";
-import { Button, PartIntro } from "../ui";
+import { Button, PartIntro, Section } from "../ui";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
-import { ArrayData } from "../proxies";
+import { TextDataArray } from "../proxies";
 
 function Intro() {
     return (
         <PartIntro section="Arrays">
-
             <p>
                 (02) At first glance arrays are just another form of nesting where the object
                 properties are indices instead of keys. However the main issue is that
@@ -15,9 +14,8 @@ function Intro() {
                 <b>and</b> we want to be reactive to changes in the array
                 (adding/removing elements)
             </p>
-            <h2>
-                Wrong 1 - render is efficient but not responsive to the ADD button
-            </h2>
+
+            <h2>Wrong 1 - render is efficient but not responsive to the ADD button</h2>
             <p>
                 (02.1) In this example we will use the "proxy" to map the objects into the
                 sub-components this is the "natural" way to do it but it bears a problem
@@ -40,10 +38,10 @@ const addNew = (idx: number) => ({
     }
 });
 
-export const RootArrayWrong1 = ({ data }: { data: ArrayData; }) => {
+export const RootArrayWrong1 = ({ data }: { data: TextDataArray; }) => {
     const cnt = useRenderCounter();
     return (
-        <>
+        <Section>
             <Intro />
 
             <h2>Array ({cnt})</h2>
@@ -55,6 +53,6 @@ export const RootArrayWrong1 = ({ data }: { data: ArrayData; }) => {
             <Button onClick={() => data.objects.push(addNew(data.objects.length))}>
                 Add
             </Button>
-        </>
+        </Section>
     );
 };

@@ -1,10 +1,10 @@
 import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
-import { ArrayData } from "../proxies";
+import { TextDataArray } from "../proxies";
 import { WrappedInput } from "../ui/03-wrapped-input";
 import { ComplexData } from "./06-ComplexObject";
-import { PartIntro, gridChild, gridParent } from "../ui";
+import { PartIntro, Section, gridChild, gridParent } from "../ui";
 
 function Intro() {
     return (
@@ -26,25 +26,27 @@ function Intro() {
 
 export const ComplexObjectWithWrappedInput = ({ data }: { data: ComplexData; }) => {
     const cnt = useRenderCounter();
-    return (<>
-        <Intro />
+    return (
+        <Section>
+            <Intro />
 
-        <h3>(07) Complex objects with wrapped inputs ({cnt})</h3>
+            <h3>(07) Complex objects with wrapped inputs ({cnt})</h3>
 
-        <div className={gridParent}>
-            <WrappedInput
-                label="field1"
-                className={gridChild}
-                data={data}
-                prop="field1"
-            />
-            
-            <WrappedInput
-                label="field2"
-                className={gridChild}
-                data={data}
-                prop="field2"
-            />
-        </div>
-    </>);
+            <div className={gridParent}>
+                <WrappedInput
+                    label="field1"
+                    className={gridChild}
+                    data={data}
+                    prop="field1"
+                />
+
+                <WrappedInput
+                    label="field2"
+                    className={gridChild}
+                    data={data}
+                    prop="field2"
+                />
+            </div>
+        </Section>
+    );
 };

@@ -11,7 +11,8 @@ export const root = proxy({
     }
 });
 
-export type RootData = typeof root;
+export type TextData = typeof root;
+//export type TestData = typeof root;
 
 const arrayData = {
     objects: [
@@ -42,10 +43,16 @@ const arrayData = {
     ]
 };
 
-export type ArrayData = typeof arrayData;
+export type TextDataArray = typeof arrayData;
 
-export const rootArray = proxy<ArrayData>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArray2 = proxy<ArrayData>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArrayw1 = proxy<ArrayData>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArrayw2 = proxy<ArrayData>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArrayWrapped = proxy<ArrayData>(JSON.parse(JSON.stringify(arrayData)));
+/*
+export type TextDataArray = {
+    objects: TestData[];
+};
+*/
+
+export const rootArray = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
+export const rootArray2 = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
+export const rootArrayw1 = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
+export const rootArrayw2 = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
+export const rootArrayWrapped = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
