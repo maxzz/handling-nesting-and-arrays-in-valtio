@@ -1,5 +1,7 @@
 import { PartIntro } from "../ui";
 
+const liClasses = "pl-4 list-disc list-inside";
+
 export function Introduction() { //https://codesandbox.io/s/handling-nesting-and-arrays-in-valtio-hoe3j4?file=/src/App.js
     return (
         <PartIntro section="Introduction">
@@ -15,8 +17,8 @@ export function Introduction() { //https://codesandbox.io/s/handling-nesting-and
                 invariants:
             </p>
             <ul>
-                <li>All the changes are reactive</li>
-                <li>
+                <li className={liClasses}>All the changes are reactive</li>
+                <li className={liClasses}>
                     We only render what we must render (i.e. from the component that
                     changed downwards)
                 </li>
@@ -27,12 +29,12 @@ export function Introduction() { //https://codesandbox.io/s/handling-nesting-and
                 mixed together:
             </p>
             <ul>
-                <li>
+                <li className={liClasses}>
                     Valtio only re-renders when the "accessed" object properties are
                     changed, however if <b>no properties</b> are accessed, it will
                     re-render based on <b>referential equality</b> of the object
                 </li>
-                <li>
+                <li className={liClasses}>
                     When an object property is modified in Valtio, the object version
                     changes all the way up, meaning that the object equality of the entire
                     parental branch will be <b>false</b>. this is what gives real
