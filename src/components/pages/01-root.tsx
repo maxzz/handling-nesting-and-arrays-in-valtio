@@ -58,12 +58,8 @@ export const Root = ({ data }: { data: RootData; }) => {
 
         <div>
             <label>Root ({cnt}) </label>
-            <input
-                value={s.rootInfo}
-                onChange={(e) => {
-                    data.rootInfo = e.currentTarget.value;
-                }}
-            />
+            <input value={s.rootInfo} onChange={(e) => data.rootInfo = e.currentTarget.value}/>
+
             <Level1 data={data.level1} />
         </div>
     </>);

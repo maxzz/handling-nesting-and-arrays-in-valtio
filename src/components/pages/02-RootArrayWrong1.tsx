@@ -1,8 +1,8 @@
 import { useSnapshot } from "valtio";
+import { Button, PartIntro } from "../ui";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
-import { PartIntro } from "../ui";
 
 function Intro() {
     return (
@@ -29,6 +29,17 @@ function Intro() {
     );
 }
 
+const addNew = (idx: number) => ({
+    key: idx,
+    rootInfo: "bla bla",
+    level1: {
+        level1Info: "bla blu",
+        level2: {
+            level2Info: "bla blo"
+        }
+    }
+});
+
 export const RootArrayWrong1 = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
     return (
@@ -39,22 +50,9 @@ export const RootArrayWrong1 = ({ data }: { data: ArrayData; }) => {
             {data.objects.map((o) => (
                 <Root data={o} key={o.key} />
             ))}
-            <button
-                onClick={() => {
-                    data.objects.push({
-                        key: data.objects.length,
-                        rootInfo: "bla bla",
-                        level1: {
-                            level1Info: "bla blu",
-                            level2: {
-                                level2Info: "bla blo"
-                            }
-                        }
-                    });
-                }}
-            >
+            <Button onClick={() => data.objects.push(addNew(data.objects.length))}>
                 Add
-            </button>
+            </Button>
         </>
     );
 };

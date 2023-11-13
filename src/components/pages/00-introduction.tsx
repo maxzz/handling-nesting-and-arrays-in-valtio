@@ -50,7 +50,6 @@ export function Introduction() { //https://codesandbox.io/s/handling-nesting-and
                 Note: In this page, wherever you see a number in paranthesis, it is
                 representing the number of renders that component had
             </p>
-
         </PartIntro>
     );
 }

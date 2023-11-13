@@ -1,9 +1,7 @@
 import { proxy, useSnapshot } from "valtio";
+import { Button, PartIntro, WrappedInput } from "../ui";
 import { useRenderCounter } from "../utils";
-import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
-import { WrappedInput } from "../ui/03-wrapped-input";
-import { PartIntro } from "../ui";
 
 const rootWrapped = proxy({
     rootInfo: "bla bla",
@@ -71,7 +69,6 @@ const addNew = (idx: number) => ({
     }
 });
 
-
 export const RootArrayWrapped = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
@@ -81,13 +78,13 @@ export const RootArrayWrapped = ({ data }: { data: ArrayData; }) => {
 
             <h2>Array ({cnt})</h2>
 
-            {s.objects.map((o, i) => (
-                <RootWrapped data={data.objects[i]} key={o.key} />
+            {s.objects.map((o, idx) => (
+                <RootWrapped data={data.objects[idx]} key={o.key} />
             ))}
 
-            <button onClick={() => data.objects.push(addNew(data.objects.length))}>
+            <Button onClick={() => data.objects.push(addNew(data.objects.length))}>
                 Add
-            </button>
+            </Button>
         </>
     );
 };
