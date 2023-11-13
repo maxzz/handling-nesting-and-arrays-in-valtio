@@ -37,7 +37,7 @@ const Level2 = ({ data }: { data: RootData["level1"]["level2"]; }) => {
     );
 };
 
-function Intro() {
+export function RootIntro() {
     return (
         <PartIntro section="Simple nested objects">
             <p>
@@ -55,8 +55,6 @@ export const Root = ({ data }: { data: RootData; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (<>
-        <Intro />
-
         <div className={gridParent}>
             <Input
                 label={`Root`}
