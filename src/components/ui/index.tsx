@@ -2,6 +2,7 @@ export * from "./01-button";
 export * from "./02-input";
 export * from "./03-wrapped-input";
 export * from "./part-intro";
+export * from "./part-section";
 
 export const gridParent = "grid grid-cols-[max-content,max-content]";
 export const gridChild = "grid col-span-2 grid-cols-[subgrid]";
