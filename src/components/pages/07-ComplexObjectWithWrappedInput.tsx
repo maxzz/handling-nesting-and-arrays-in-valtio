@@ -4,7 +4,7 @@ import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
 import { WrappedInput } from "../ui/03-wrapped-input";
 import { ComplexData } from "./06-ComplexObject";
-import { PartIntro } from "../ui";
+import { PartIntro, gridChild, gridParent } from "../ui";
 
 function Intro() {
     return (
@@ -31,9 +31,20 @@ export const ComplexObjectWithWrappedInput = ({ data }: { data: ComplexData; }) 
 
         <h3>(07) Complex objects with wrapped inputs ({cnt})</h3>
 
-        <div>
-            <WrappedInput label="field1" data={data} prop="field1" />
-            <WrappedInput label="field2" data={data} prop="field2" />
+        <div className={gridParent}>
+            <WrappedInput
+                label="field1"
+                className={gridChild}
+                data={data}
+                prop="field1"
+            />
+            
+            <WrappedInput
+                label="field2"
+                className={gridChild}
+                data={data}
+                prop="field2"
+            />
         </div>
     </>);
 };

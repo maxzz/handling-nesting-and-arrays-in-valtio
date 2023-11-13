@@ -21,13 +21,12 @@ export const WrappedInput = ({ label, data, prop, ...rest }: WrappedInputProps) 
     }
 
     return (
-        <div className="flex items-center space-x-2" {...rest}>
-            <div className="flex items-center space-x-1">
-                <div>({label})</div>
-                <div>({cnt})</div>
-            </div>
-
-            <Input label={prop} value={value} onChange={(e) => data[prop] = e.currentTarget.value}></Input>
-        </div>
+        <Input
+            label={`${label}.${prop}`}
+            updateCnt={cnt}
+            value={value}
+            onChange={(e) => data[prop] = e.currentTarget.value}
+            {...rest}
+        />
     );
 };

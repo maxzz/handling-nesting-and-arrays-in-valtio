@@ -2,6 +2,7 @@ import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { RootData } from "../proxies";
 import { Input, PartIntro, gridChild, gridParent } from "../ui";
+import { classNames } from "@/utils";
 
 const Level1 = ({ data }: { data: RootData["level1"]; }) => {
     const cnt = useRenderCounter();
@@ -55,7 +56,7 @@ export const Root = ({ data }: { data: RootData; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (<>
-        <div className={gridParent}>
+        <div className={classNames("my-1 px-4 py-1 w-min border-primary-500 border border-dotted rounded", gridParent)}>
             <Input
                 label={`Root`}
                 updateCnt={cnt}

@@ -2,7 +2,7 @@ import { proxy, useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
-import { PartIntro } from "../ui";
+import { Input, PartIntro, gridChild, gridParent } from "../ui";
 
 function Intro() {
     return (<>
@@ -42,19 +42,21 @@ export const ComplexObject = ({ data }: { data: ComplexData; }) => {
     return (<>
         <Intro />
 
-        <div>
-            <h2>Complex objects ({cnt})</h2>
+        <h2>Complex objects ({cnt})</h2>
 
-            <label>field1</label>
-            <input
+        <div className={gridParent}>
+            <Input
+                label="field1"
+                className={gridChild}
                 value={s.field1}
-                onChange={(e) => (data.field1 = e.currentTarget.value)}
+                onChange={(e) => data.field1 = e.currentTarget.value}
             />
 
-            <label>field2</label>
-            <input
+            <Input
+                label="field2"
+                className={gridChild}
                 value={s.field2}
-                onChange={(e) => (data.field2 = e.currentTarget.value)}
+                onChange={(e) => data.field2 = e.currentTarget.value}
             />
         </div>
 
