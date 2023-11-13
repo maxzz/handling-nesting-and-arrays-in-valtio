@@ -1,8 +1,7 @@
 import { Button, PartIntro, Section } from "../../ui";
-import { useRenderCounter } from "../../utils";
+import { TestDataWithArray, createNewData } from "./types";
 import { Root } from "./01-root";
-import { TextDataArray } from "./types";
-import { addNew } from "./00-data";
+import { useRenderCounter } from "../../utils";
 
 export function RootIntro() {
     return (
@@ -33,7 +32,7 @@ function Intro() {
     );
 }
 
-export const RootArrayWrong1 = ({ data }: { data: TextDataArray; }) => {
+export const RootArrayWrong1 = ({ data }: { data: TestDataWithArray; }) => {
     const cnt = useRenderCounter();
     return (
         <Section>
@@ -45,7 +44,7 @@ export const RootArrayWrong1 = ({ data }: { data: TextDataArray; }) => {
                 <Root data={o} key={o.key} />
             ))}
 
-            <Button onClick={() => data.objects.push(addNew(data.objects.length))}>
+            <Button onClick={() => data.objects.push(createNewData(data.objects.length))}>
                 Add
             </Button>
         </Section>

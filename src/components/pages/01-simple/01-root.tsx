@@ -1,10 +1,10 @@
 import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../../utils";
-import { TextData } from "./types";
+import { TestData } from "./types";
 import { Input, PartIntro, gridChild, gridParent, groupFrameClasses } from "../../ui";
 import { classNames } from "@/utils";
 
-const Level1 = ({ data }: { data: TextData["level1"]; }) => {
+const Level1 = ({ data }: { data: TestData["level1"]; }) => {
     const cnt = useRenderCounter();
     const snap = useSnapshot(data);
     return (
@@ -22,7 +22,7 @@ const Level1 = ({ data }: { data: TextData["level1"]; }) => {
     );
 };
 
-const Level2 = ({ data }: { data: TextData["level1"]["level2"]; }) => {
+const Level2 = ({ data }: { data: TestData["level1"]["level2"]; }) => {
     const cnt = useRenderCounter();
     const snap = useSnapshot(data);
     return (
@@ -52,7 +52,7 @@ export function IntroSimple() {
     );
 }
 
-export const Root = ({ data }: { data: TextData; }) => {
+export const Root = ({ data }: { data: TestData; }) => {
     const cnt = useRenderCounter();
     const snap = useSnapshot(data);
     return (<>

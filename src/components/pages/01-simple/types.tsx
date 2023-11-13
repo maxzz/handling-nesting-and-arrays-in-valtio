@@ -1,58 +1,42 @@
-import { proxy, useSnapshot } from "valtio";
+import { proxy } from "valtio";
 
-export const root = proxy({
+export type TestData = {
+    key: number;
+    rootInfo: string;
+    level1: {
+        level1Info: string;
+        level2: {
+            level2Info: string;
+        };
+    };
+};
+
+export const createNewData = (idx: number) => ({
+    key: idx,
     rootInfo: "bla bla",
     level1: {
         level1Info: "bla blu",
-
         level2: {
             level2Info: "bla blo"
         }
     }
 });
 
-export type TextData = typeof root;
-//export type TestData = typeof root;
+export const root = proxy<TestData>(createNewData(9));
+
+export type TestDataWithArray = {
+    objects: TestData[];
+};
 
 const arrayData = {
     objects: [
-        {
-            key: 0,
-            rootInfo: "bla bla",
-
-            level1: {
-                level1Info: "bla blu",
-
-                level2: {
-                    level2Info: "bla blo"
-                }
-            }
-        },
-        {
-            key: 1,
-            rootInfo: "bla bla",
-
-            level1: {
-                level1Info: "bla blu",
-                
-                level2: {
-                    level2Info: "bla blo"
-                }
-            }
-        }
+        createNewData(0),
+        createNewData(1),
     ]
 };
 
-export type TextDataArray = typeof arrayData;
-
-/*
-export type TextDataArray = {
-    objects: TestData[];
-};
-*/
-
-export const rootArray = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArray2 = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArrayw1 = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArrayw2 = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArrayWrapped = proxy<TextDataArray>(JSON.parse(JSON.stringify(arrayData)));
+export const rootArray = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));
+export const rootArray2 = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));
+export const rootArrayw1 = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));
+export const rootArrayw2 = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));
+export const rootArrayWrapped = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));

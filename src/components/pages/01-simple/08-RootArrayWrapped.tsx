@@ -1,9 +1,8 @@
 import { proxy, useSnapshot } from "valtio";
+import { TestDataWithArray, createNewData } from "./types";
 import { Button, PartIntro, Section, WrappedInput, gridChild, gridParent, groupFrameClasses } from "../../ui";
-import { TextDataArray } from "./types";
 import { useRenderCounter } from "../../utils";
 import { classNames } from "@/utils";
-import { addNew } from "./00-data";
 
 const rootWrapped = proxy({
     rootInfo: "bla bla",
@@ -73,7 +72,7 @@ function Intro() {
     );
 }
 
-export const RootArrayWrapped = ({ data }: { data: TextDataArray; }) => {
+export const RootArrayWrapped = ({ data }: { data: TestDataWithArray; }) => {
     const cnt = useRenderCounter();
     const snap = useSnapshot(data);
     return (
@@ -86,7 +85,7 @@ export const RootArrayWrapped = ({ data }: { data: TextDataArray; }) => {
                 <RootWrapped data={data.objects[idx]} key={o.key} />
             ))}
 
-            <Button onClick={() => data.objects.push(addNew(data.objects.length))}>
+            <Button onClick={() => data.objects.push(createNewData(data.objects.length))}>
                 Add
             </Button>
         </Section>
