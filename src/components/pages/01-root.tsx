@@ -13,7 +13,7 @@ const Level1 = ({ data }: { data: RootData["level1"]; }) => {
                 value={s.level1Info}
                 onChange={(e) => data.level1Info = e.currentTarget.value}
             />
-            
+
             <Level2 data={data.level2} />
         </>
     );
@@ -26,6 +26,7 @@ const Level2 = ({ data }: { data: RootData["level1"]["level2"]; }) => {
         <>
             <Input
                 label={`Level2 (${cnt})`} 
+                updateCnt={cnt}
                 value={s.level2Info}
                 onChange={(e) => data.level2Info = e.currentTarget.value}
             />
