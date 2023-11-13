@@ -1,7 +1,4 @@
-import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../../utils";
-import { Root } from "../01-simple/01-root";
-import { TextDataArray } from "../types";
 import { WrappedInput } from "../../ui/03-wrapped-input";
 import { ComplexData } from "./06-ComplexObject";
 import { PartIntro, Section, gridChild, gridParent } from "../../ui";

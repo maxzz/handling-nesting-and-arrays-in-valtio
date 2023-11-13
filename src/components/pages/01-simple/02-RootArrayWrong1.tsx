@@ -2,7 +2,7 @@ import { useSnapshot } from "valtio";
 import { Button, PartIntro, Section } from "../../ui";
 import { useRenderCounter } from "../../utils";
 import { Root } from "./01-root";
-import { TextDataArray } from "../types";
+import { TextDataArray } from "./types";
 
 export function RootIntro() {
     return (

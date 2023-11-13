@@ -5,7 +5,7 @@ import {
     rootArrayw1,
     rootArrayw2,
     rootArrayWrapped
-} from "./components/pages/types";
+} from "./components/pages/01-simple/types";
 
 import { ComplexObject, ComplexObjectWithWrappedInput, Introduction, Root, RootArray, RootArray2, RootArrayWrapped, RootArrayWrong1, RootArrayWrong2, IntroSimple, RootIntro, complexData1, complexData2 } from "./components/pages";
 

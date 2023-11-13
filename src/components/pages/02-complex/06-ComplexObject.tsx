@@ -1,7 +1,5 @@
 import { proxy, useSnapshot } from "valtio";
 import { useRenderCounter } from "../../utils";
-import { Root } from "../01-simple/01-root";
-import { TextDataArray } from "../types";
 import { Input, PartIntro, Section, gridChild, gridParent } from "../../ui";
 
 function Intro() {

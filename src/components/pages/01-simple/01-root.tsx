@@ -1,6 +1,6 @@
 import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../../utils";
-import { TextData } from "../types";
+import { TextData } from "./types";
 import { Input, PartIntro, gridChild, gridParent, groupFrameClasses } from "../../ui";
 import { classNames } from "@/utils";
 
