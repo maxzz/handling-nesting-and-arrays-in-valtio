@@ -1,7 +1,7 @@
 import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../../utils";
 import { Root } from "./01-root";
-import { TextDataArray } from "../../proxies";
+import { TextDataArray } from "../types";
 import { Button, PartIntro, Section } from "../../ui";
 
 function Intro() {
