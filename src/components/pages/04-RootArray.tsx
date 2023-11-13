@@ -25,9 +25,11 @@ export const RootArray = ({ data }: { data: ArrayData; }) => {
             <Intro />
 
             <h2>Array ({cnt})</h2>
+
             {Array.from(Array(s.objects.length).keys()).map((i) => (
                 <Root data={data.objects[i]} key={s.objects[i].key} />
             ))}
+            
             <button
                 onClick={() => {
                     data.objects.push({

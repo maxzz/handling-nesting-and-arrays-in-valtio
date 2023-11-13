@@ -30,9 +30,11 @@ export const RootArray2 = ({ data }: { data: ArrayData; }) => {
             <Intro />
 
             <h2>Array ({cnt})</h2>
+
             {s.objects.map((o, i) => (
                 <Root data={data.objects[i]} key={o.key} />
             ))}
+            
             <button
                 onClick={() => {
                     data.objects.push({

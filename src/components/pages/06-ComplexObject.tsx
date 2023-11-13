@@ -44,11 +44,13 @@ export const ComplexObject = ({ data }: { data: ComplexData; }) => {
 
         <div>
             <h2>Complex objects ({cnt})</h2>
+
             <label>field1</label>
             <input
                 value={s.field1}
                 onChange={(e) => (data.field1 = e.currentTarget.value)}
             />
+            
             <label>field2</label>
             <input
                 value={s.field2}

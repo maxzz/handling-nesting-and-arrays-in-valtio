@@ -2,7 +2,7 @@ import { proxy, useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
-import { WrappedInput } from "../ui/00-wrappedInput";
+import { WrappedInput } from "../ui/03-wrapped-input";
 import { PartIntro } from "../ui";
 
 const rootWrapped = proxy({
@@ -71,9 +71,11 @@ export const RootArrayWrapped = ({ data }: { data: ArrayData; }) => {
             <Intro />
 
             <h2>Array ({cnt})</h2>
+
             {s.objects.map((o, i) => (
                 <RootWrapped data={data.objects[i]} key={o.key} />
             ))}
+
             <button
                 onClick={() => {
                     data.objects.push({

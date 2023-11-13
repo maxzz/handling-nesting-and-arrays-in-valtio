@@ -2,7 +2,7 @@ import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
-import { WrappedInput } from "../ui/00-wrappedInput";
+import { WrappedInput } from "../ui/03-wrapped-input";
 import { ComplexData } from "./06-ComplexObject";
 import { PartIntro } from "../ui";
 
@@ -30,10 +30,13 @@ export const ComplexObjectWithWrappedInput = ({ data }: { data: ComplexData; }) 
 
         <div>
             <h2>Complex objects with wrapped inputs ({cnt})</h2>
+            
             <label>field1</label>
             <WrappedInput data={data} prop="field1" />
+
             <label>field2</label>
             <WrappedInput data={data} prop="field2" />
+
         </div>
     </>);
 };
