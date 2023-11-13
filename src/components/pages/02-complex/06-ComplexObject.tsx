@@ -1,8 +1,8 @@
 import { proxy, useSnapshot } from "valtio";
-import { useRenderCounter } from "../utils";
-import { Root } from "./01-root";
-import { TextDataArray } from "../proxies";
-import { Input, PartIntro, Section, gridChild, gridParent } from "../ui";
+import { useRenderCounter } from "../../utils";
+import { Root } from "../01-simple/01-root";
+import { TextDataArray } from "../../proxies";
+import { Input, PartIntro, Section, gridChild, gridParent } from "../../ui";
 
 function Intro() {
     return (<>

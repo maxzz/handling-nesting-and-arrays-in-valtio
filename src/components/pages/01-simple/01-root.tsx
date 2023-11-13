@@ -1,7 +1,7 @@
 import { useSnapshot } from "valtio";
-import { useRenderCounter } from "../utils";
-import { TextData } from "../proxies";
-import { Input, PartIntro, gridChild, gridParent, groupFrameClasses } from "../ui";
+import { useRenderCounter } from "../../utils";
+import { TextData } from "../../proxies";
+import { Input, PartIntro, gridChild, gridParent, groupFrameClasses } from "../../ui";
 import { classNames } from "@/utils";
 
 const Level1 = ({ data }: { data: TextData["level1"]; }) => {
@@ -38,7 +38,7 @@ const Level2 = ({ data }: { data: TextData["level1"]["level2"]; }) => {
     );
 };
 
-export function RootIntro() {
+export function IntroSimple() {
     return (
         <PartIntro section="Simple nested objects">
             <p>

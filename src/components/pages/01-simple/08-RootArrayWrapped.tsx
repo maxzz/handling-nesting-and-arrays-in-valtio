@@ -1,7 +1,7 @@
 import { proxy, useSnapshot } from "valtio";
-import { Button, PartIntro, Section, WrappedInput, gridChild, gridParent, groupFrameClasses } from "../ui";
-import { TextDataArray } from "../proxies";
-import { useRenderCounter } from "../utils";
+import { Button, PartIntro, Section, WrappedInput, gridChild, gridParent, groupFrameClasses } from "../../ui";
+import { TextDataArray } from "../../proxies";
+import { useRenderCounter } from "../../utils";
 import { classNames } from "@/utils";
 
 const rootWrapped = proxy({

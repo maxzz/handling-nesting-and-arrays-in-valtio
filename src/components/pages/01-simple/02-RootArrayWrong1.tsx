@@ -1,10 +1,10 @@
 import { useSnapshot } from "valtio";
-import { Button, PartIntro, Section } from "../ui";
-import { useRenderCounter } from "../utils";
+import { Button, PartIntro, Section } from "../../ui";
+import { useRenderCounter } from "../../utils";
 import { Root } from "./01-root";
-import { TextDataArray } from "../proxies";
+import { TextDataArray } from "../../proxies";
 
-function Intro() {
+export function RootIntro() {
     return (
         <PartIntro section="Arrays">
             <p>
@@ -14,8 +14,14 @@ function Intro() {
                 <b>and</b> we want to be reactive to changes in the array
                 (adding/removing elements)
             </p>
+        </PartIntro>
+    );
+}
 
-            <h2>Wrong 1 - render is efficient but not responsive to the ADD button</h2>
+function Intro() {
+    return (
+        <PartIntro section="Wrong 1 - render is efficient but not responsive to the ADD button" h1={false}>
+            {/* <h2></h2> */}
             <p>
                 (02.1) In this example we will use the "proxy" to map the objects into the
                 sub-components this is the "natural" way to do it but it bears a problem
