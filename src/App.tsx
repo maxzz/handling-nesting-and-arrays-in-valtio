@@ -11,23 +11,25 @@ import { ComplexObject, ComplexObjectWithWrappedInput, Introduction, Root, RootA
 
 export default function App() {
     // let t = useSnapshot(state.people[0]);
-    return (<>
-        <Introduction />
+    return (
+        <div className="px-4">
+            <Introduction />
 
-        <Root data={root} />
+            <Root data={root} />
 
-        <RootArrayWrong1 data={rootArrayw1} />
+            <RootArrayWrong1 data={rootArrayw1} />
 
-        <RootArrayWrong2 data={rootArrayw2} />
+            <RootArrayWrong2 data={rootArrayw2} />
 
-        <RootArray data={rootArray} />
+            <RootArray data={rootArray} />
 
-        <RootArray2 data={rootArray2} />
+            <RootArray2 data={rootArray2} />
 
-        <ComplexObject data={complexData1} />
+            <ComplexObject data={complexData1} />
 
-        <ComplexObjectWithWrappedInput data={complexData2} />
+            <ComplexObjectWithWrappedInput data={complexData2} />
 
-        <RootArrayWrapped data={rootArrayWrapped} />
-    </>);
+            <RootArrayWrapped data={rootArrayWrapped} />
+        </div>
+    );
 }

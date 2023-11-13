@@ -47,9 +47,11 @@ export const RootArrayWrong1 = ({ data }: { data: ArrayData; }) => {
             <Intro />
 
             <h2>Array ({cnt})</h2>
+
             {data.objects.map((o) => (
                 <Root data={o} key={o.key} />
             ))}
+
             <Button onClick={() => data.objects.push(addNew(data.objects.length))}>
                 Add
             </Button>

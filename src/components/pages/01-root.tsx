@@ -9,7 +9,8 @@ const Level1 = ({ data }: { data: RootData["level1"]; }) => {
     return (
         <>
             <Input
-                label={`Level1 (${cnt})`} 
+                label={`Level1`} 
+                updateCnt={cnt}
                 value={s.level1Info}
                 onChange={(e) => data.level1Info = e.currentTarget.value}
             />
@@ -25,7 +26,7 @@ const Level2 = ({ data }: { data: RootData["level1"]["level2"]; }) => {
     return (
         <>
             <Input
-                label={`Level2 (${cnt})`} 
+                label={`Level2`} 
                 updateCnt={cnt}
                 value={s.level2Info}
                 onChange={(e) => data.level2Info = e.currentTarget.value}
@@ -55,7 +56,7 @@ export const Root = ({ data }: { data: RootData; }) => {
         <Intro />
 
         <div>
-            <Input label={`Root (${cnt})`} value={s.rootInfo} onChange={(e) => data.rootInfo = e.currentTarget.value}/>
+            <Input label={`Root`} updateCnt={cnt} value={s.rootInfo} onChange={(e) => data.rootInfo = e.currentTarget.value}/>
 
             <Level1 data={data.level1} />
         </div>
