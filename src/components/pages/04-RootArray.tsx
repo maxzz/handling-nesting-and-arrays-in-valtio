@@ -9,7 +9,7 @@ function Intro() {
         <PartIntro section="Correct 1 - Using only the length from the snapshot" h1={false}>
             {/* <h2>  </h2> */}
             <p>
-                If we just depend on the length from the snapshot we will be reactive on
+                (04) If we just depend on the length from the snapshot we will be reactive on
                 changes in the array size, without depending on the objects
                 individually.
             </p>
@@ -29,7 +29,7 @@ export const RootArray = ({ data }: { data: ArrayData; }) => {
             {Array.from(Array(s.objects.length).keys()).map((i) => (
                 <Root data={data.objects[i]} key={s.objects[i].key} />
             ))}
-            
+
             <button
                 onClick={() => {
                     data.objects.push({

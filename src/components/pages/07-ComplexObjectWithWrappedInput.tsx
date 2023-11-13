@@ -11,7 +11,7 @@ function Intro() {
         <PartIntro section="Wrapped inputs avoid sideways rendering" h1={false}>
             {/* <h2>  </h2> */}
             <p>
-                The behavior presented above shouldn't be surprising as this is what
+                (07) The behavior presented above shouldn't be surprising as this is what
                 React is supposed to do, it can't "half-render" a component when only
                 some of it changes. However, there is a solution, if we push down the
                 dependency to a wrapper component that wraps around a single field. We
@@ -19,6 +19,7 @@ function Intro() {
                 change and only the individual wrappers around the input elements that
                 changed are rendered
             </p>
+
         </PartIntro>
     );
 }
@@ -28,15 +29,11 @@ export const ComplexObjectWithWrappedInput = ({ data }: { data: ComplexData; }) 
     return (<>
         <Intro />
 
+        <h3>(07) Complex objects with wrapped inputs ({cnt})</h3>
+
         <div>
-            <h2>Complex objects with wrapped inputs ({cnt})</h2>
-            
-            <label>field1</label>
-            <WrappedInput data={data} prop="field1" />
-
-            <label>field2</label>
-            <WrappedInput data={data} prop="field2" />
-
+            <WrappedInput label="field1" data={data} prop="field1" />
+            <WrappedInput label="field2" data={data} prop="field2" />
         </div>
     </>);
 };

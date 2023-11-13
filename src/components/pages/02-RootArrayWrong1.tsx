@@ -9,7 +9,7 @@ function Intro() {
         <PartIntro section="Arrays">
 
             <p>
-                At first glance arrays are just another form of nesting where the object
+                (02) At first glance arrays are just another form of nesting where the object
                 properties are indices instead of keys. However the main issue is that
                 we don't know how many children the array has at any point in time{" "}
                 <b>and</b> we want to be reactive to changes in the array
@@ -19,7 +19,7 @@ function Intro() {
                 Wrong 1 - render is efficient but not responsive to the ADD button
             </h2>
             <p>
-                In this example we will use the "proxy" to map the objects into the
+                (02.1) In this example we will use the "proxy" to map the objects into the
                 sub-components this is the "natural" way to do it but it bears a problem
                 that since we haven't used any snapshot, we are not reactive to changes
                 in the number of elements in the array. For this reason the "Add" button

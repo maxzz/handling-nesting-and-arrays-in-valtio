@@ -8,7 +8,7 @@ function Intro() {
     return (<>
         <PartIntro section="Complex objects (multiple editable elements)">
             <p>
-                So far we handled only objects with 1 primitive field and one nested
+                (06) So far we handled only objects with 1 primitive field and one nested
                 objects. yet even in that example we see that updating the primitive
                 field renders the child component that is a sibling to it. In cases
                 where we might have many different fields at the same object this could
@@ -19,7 +19,7 @@ function Intro() {
         <PartIntro section="Simple inputs (cause more rendering to complex object)" h1={false}>
             {/* <h2>  </h2> */}
             <p>
-                This example shows how a component with 2 primitive fields will render
+                (06.1) This example shows how a component with 2 primitive fields will render
                 itself for any change in any one of these fields:
             </p>
         </PartIntro>
@@ -50,7 +50,7 @@ export const ComplexObject = ({ data }: { data: ComplexData; }) => {
                 value={s.field1}
                 onChange={(e) => (data.field1 = e.currentTarget.value)}
             />
-            
+
             <label>field2</label>
             <input
                 value={s.field2}

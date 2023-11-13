@@ -9,7 +9,7 @@ function Intro() {
         <PartIntro section="Correct 2 - Using a key from the objects" h1={false}>
             {/* <h2>  </h2> */}
             <p>
-                React recommends using "key" props for elements in array so it can be
+                (05) React recommends using "key" props for elements in array so it can be
                 more efficient when elements are moved around. This can also help
                 Valtio, if we pass the "key" from the objects themselves (assuming such
                 key exists). This will cause the array component not to rely on the
@@ -34,7 +34,7 @@ export const RootArray2 = ({ data }: { data: ArrayData; }) => {
             {s.objects.map((o, i) => (
                 <Root data={data.objects[i]} key={o.key} />
             ))}
-            
+
             <button
                 onClick={() => {
                     data.objects.push({

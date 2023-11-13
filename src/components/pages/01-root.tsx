@@ -40,7 +40,7 @@ function Intro() {
     return (
         <PartIntro section="Simple nested objects">
             <p>
-                First case to look at is are "simple" (i.e. no arrays) nested
+                (01) First case to look at is are "simple" (i.e. no arrays) nested
                 objects/components. We can see that in this case the rendering only
                 happens to the objects that changed and whatever components are under
                 them. To make it work we need to pass the <b>proxy</b> to the child

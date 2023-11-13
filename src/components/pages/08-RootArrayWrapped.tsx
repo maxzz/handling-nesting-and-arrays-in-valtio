@@ -21,8 +21,7 @@ const Level1Wrapped = ({ data }: { data: RootWrapped["level1"]; }) => {
     const cnt = useRenderCounter();
     return (
         <>
-            <label>Level1 ({cnt}) </label>
-            <WrappedInput data={data} prop="level1Info" />
+            <WrappedInput label={`Level1 (${cnt})`} data={data} prop="level1Info" />
             <Level2Wrapped data={data.level2} />
         </>
     );
@@ -32,8 +31,7 @@ const Level2Wrapped = ({ data }: { data: RootWrapped["level1"]["level2"]; }) => 
     const cnt = useRenderCounter();
     return (
         <>
-            <label>Level2 ({cnt}) </label>
-            <WrappedInput data={data} prop="level2Info" />
+            <WrappedInput label={`Level2 (${cnt})`} data={data} prop="level2Info" />
         </>
     );
 };
@@ -42,8 +40,7 @@ const RootWrapped = ({ data }: { data: RootWrapped; }) => {
     const cnt = useRenderCounter();
     return (
         <div>
-            <label>Root ({cnt}) </label>
-            <WrappedInput data={data} prop="rootInfo" />
+            <WrappedInput label={`Root (${cnt})`} data={data} prop="rootInfo" />
             <Level1Wrapped data={data.level1} />
         </div>
     );
@@ -53,7 +50,7 @@ function Intro() {
     return (
         <PartIntro section="Revisiting 'Simple' objects">
             <p>
-                Going back to our "simple" objects in the top of this page, we can now
+                (08) Going back to our "simple" objects in the top of this page, we can now
                 use the WrappedInput to make sure that even changes to the primitive
                 field at the higher level isn't causing a re-render of the lower level,
                 this combining this wrapped input method with what we did to optimize
@@ -62,6 +59,18 @@ function Intro() {
         </PartIntro>
     );
 }
+
+const addNew = (idx: number) => ({
+    key: idx,
+    rootInfo: "bla bla",
+    level1: {
+        level1Info: "bla blu",
+        level2: {
+            level2Info: "bla blo"
+        }
+    }
+});
+
 
 export const RootArrayWrapped = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
@@ -76,20 +85,7 @@ export const RootArrayWrapped = ({ data }: { data: ArrayData; }) => {
                 <RootWrapped data={data.objects[i]} key={o.key} />
             ))}
 
-            <button
-                onClick={() => {
-                    data.objects.push({
-                        key: data.objects.length,
-                        rootInfo: "bla bla",
-                        level1: {
-                            level1Info: "bla blu",
-                            level2: {
-                                level2Info: "bla blo"
-                            }
-                        }
-                    });
-                }}
-            >
+            <button onClick={() => data.objects.push(addNew(data.objects.length))}>
                 Add
             </button>
         </>
