@@ -1,7 +1,8 @@
+import { PartIntro } from "../ui";
+
 export function Introduction() { //https://codesandbox.io/s/handling-nesting-and-arrays-in-valtio-hoe3j4?file=/src/App.js
     return (
-        <>
-            <h1>Introduction</h1>
+        <PartIntro section="Introduction">
             <p>
                 This page shows different ways to render nested or complex objects that
                 correcpond to nested React component. This is a common use case where
@@ -49,14 +50,7 @@ export function Introduction() { //https://codesandbox.io/s/handling-nesting-and
                 Note: In this page, wherever you see a number in paranthesis, it is
                 representing the number of renders that component had
             </p>
-            <h1> Simple nested objects </h1>
-            <p>
-                First case to look at is are "simple" (i.e. no arrays) nested
-                objects/components. We can see that in this case the rendering only
-                happens to the objects that changed and whatever components are under
-                them. To make it work we need to pass the <b>proxy</b> to the child
-                component and not depend on it.
-            </p>
-        </>
+
+        </PartIntro>
     );
 }

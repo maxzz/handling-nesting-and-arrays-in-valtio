@@ -2,21 +2,24 @@ import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
+import { PartIntro } from "../ui";
 
 function Intro() {
-    return (<>
-        <h2> Correct 2 - Using a key from the objects </h2>
-        <p>
-            React recommends using "key" props for elements in array so it can be
-            more efficient when elements are moved around. This can also help
-            Valtio, if we pass the "key" from the objects themselves (assuming such
-            key exists). This will cause the array component not to rely on the
-            objects themselves (with referential equality) but rather on the key
-            inside each object only. Since these "keys" never (or rarely) change
-            then it will prevent the array component (and all its children) to
-            redner unneededly
-        </p>
-    </>);
+    return (
+        <PartIntro section="Correct 2 - Using a key from the objects" h1={false}>
+            {/* <h2>  </h2> */}
+            <p>
+                React recommends using "key" props for elements in array so it can be
+                more efficient when elements are moved around. This can also help
+                Valtio, if we pass the "key" from the objects themselves (assuming such
+                key exists). This will cause the array component not to rely on the
+                objects themselves (with referential equality) but rather on the key
+                inside each object only. Since these "keys" never (or rarely) change
+                then it will prevent the array component (and all its children) to
+                redner unneededly
+            </p>
+        </PartIntro>
+    );
 }
 
 export const RootArray2 = ({ data }: { data: ArrayData; }) => {

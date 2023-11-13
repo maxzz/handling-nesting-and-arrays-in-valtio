@@ -1,8 +1,9 @@
 import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { RootData } from "../proxies";
+import { PartIntro } from "../ui";
 
-const Level1 = ({ data }: {data: RootData["level1"]}) => {
+const Level1 = ({ data }: { data: RootData["level1"]; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
@@ -19,7 +20,7 @@ const Level1 = ({ data }: {data: RootData["level1"]}) => {
     );
 };
 
-const Level2 = ({ data }: {data: RootData["level1"]["level2"]}) => {
+const Level2 = ({ data }: { data: RootData["level1"]["level2"]; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
@@ -35,10 +36,26 @@ const Level2 = ({ data }: {data: RootData["level1"]["level2"]}) => {
     );
 };
 
-export const Root = ({ data }: {data: RootData}) => {
+function Intro() {
+    return (
+        <PartIntro section="Simple nested objects">
+            <p>
+                First case to look at is are "simple" (i.e. no arrays) nested
+                objects/components. We can see that in this case the rendering only
+                happens to the objects that changed and whatever components are under
+                them. To make it work we need to pass the <b>proxy</b> to the child
+                component and not depend on it.
+            </p>
+        </PartIntro>
+    );
+}
+
+export const Root = ({ data }: { data: RootData; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
-    return (
+    return (<>
+        <Intro />
+
         <div>
             <label>Root ({cnt}) </label>
             <input
@@ -49,5 +66,5 @@ export const Root = ({ data }: {data: RootData}) => {
             />
             <Level1 data={data.level1} />
         </div>
-    );
+    </>);
 };

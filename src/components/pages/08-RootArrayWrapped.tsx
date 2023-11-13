@@ -2,7 +2,8 @@ import { proxy, useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
-import { WrappedInput } from "./00-wrappedInput";
+import { WrappedInput } from "../ui/00-wrappedInput";
+import { PartIntro } from "../ui";
 
 const rootWrapped = proxy({
     rootInfo: "bla bla",
@@ -49,16 +50,17 @@ const RootWrapped = ({ data }: { data: RootWrapped; }) => {
 };
 
 function Intro() {
-    return (<>
-        <h1>Revisiting "Simple" objects</h1>
-        <p>
-            Going back to our "simple" objects in the top of this page, we can now
-            use the WrappedInput to make sure that even changes to the primitive
-            field at the higher level isn't causing a re-render of the lower level,
-            this combining this wrapped input method with what we did to optimize
-            array rendering:
-        </p>
-    </>);
+    return (
+        <PartIntro section="Revisiting 'Simple' objects">
+            <p>
+                Going back to our "simple" objects in the top of this page, we can now
+                use the WrappedInput to make sure that even changes to the primitive
+                field at the higher level isn't causing a re-render of the lower level,
+                this combining this wrapped input method with what we did to optimize
+                array rendering:
+            </p>
+        </PartIntro>
+    );
 }
 
 export const RootArrayWrapped = ({ data }: { data: ArrayData; }) => {

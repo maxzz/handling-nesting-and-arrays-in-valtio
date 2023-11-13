@@ -2,25 +2,28 @@ import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
+import { PartIntro } from "../ui";
 
 function Intro() {
-    return (<>
-        <h2> Correct 1 - Using only the length from the snapshot </h2>
-        <p>
-            If we just depend on the length from the snapshot we will be reactive on
-            changes in the array size, without depending on the objects
-            individually.
-        </p>
-    </>);
+    return (
+        <PartIntro section="Correct 1 - Using only the length from the snapshot" h1={false}>
+            {/* <h2>  </h2> */}
+            <p>
+                If we just depend on the length from the snapshot we will be reactive on
+                changes in the array size, without depending on the objects
+                individually.
+            </p>
+        </PartIntro>
+    );
 }
-
-//<Intro />
 
 export const RootArray = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
     const s = useSnapshot(data);
     return (
         <>
+            <Intro />
+
             <h2>Array ({cnt})</h2>
             {Array.from(Array(s.objects.length).keys()).map((i) => (
                 <Root data={data.objects[i]} key={s.objects[i].key} />

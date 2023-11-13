@@ -2,26 +2,29 @@ import { proxy, useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { Root } from "./01-root";
 import { ArrayData } from "../proxies";
+import { PartIntro } from "../ui";
 
 function Intro() {
     return (<>
-        <h1> Complex objects (multiple editable elements) </h1>
-        <p>
-            So far we handled only objects with 1 primitive field and one nested
-            objects. yet even in that example we see that updating the primitive
-            field renders the child component that is a sibling to it. In cases
-            where we might have many different fields at the same object this could
-            be detrimental to performance.
-        </p>
-        <h2> Simple inputs (cause more rendering to complex object) </h2>
-        <p>
-            This example shows how a component with 2 primitive fields will render
-            itself for any change in any one of these fields:
-        </p>
+        <PartIntro section="Complex objects (multiple editable elements)">
+            <p>
+                So far we handled only objects with 1 primitive field and one nested
+                objects. yet even in that example we see that updating the primitive
+                field renders the child component that is a sibling to it. In cases
+                where we might have many different fields at the same object this could
+                be detrimental to performance.
+            </p>
+        </PartIntro>
+
+        <PartIntro section="Simple inputs (cause more rendering to complex object)" h1={false}>
+            {/* <h2>  </h2> */}
+            <p>
+                This example shows how a component with 2 primitive fields will render
+                itself for any change in any one of these fields:
+            </p>
+        </PartIntro>
     </>);
 }
-
-//
 
 export const complexData = {
     field1: "A",
