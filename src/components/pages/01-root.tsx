@@ -1,7 +1,7 @@
 import { useSnapshot } from "valtio";
 import { useRenderCounter } from "../utils";
 import { RootData } from "../proxies";
-import { Input, PartIntro } from "../ui";
+import { Input, PartIntro, gridChild, gridParent } from "../ui";
 
 const Level1 = ({ data }: { data: RootData["level1"]; }) => {
     const cnt = useRenderCounter();
@@ -9,8 +9,9 @@ const Level1 = ({ data }: { data: RootData["level1"]; }) => {
     return (
         <>
             <Input
-                label={`Level1`} 
+                label={`Level1`}
                 updateCnt={cnt}
+                className={gridChild}
                 value={s.level1Info}
                 onChange={(e) => data.level1Info = e.currentTarget.value}
             />
@@ -26,8 +27,9 @@ const Level2 = ({ data }: { data: RootData["level1"]["level2"]; }) => {
     return (
         <>
             <Input
-                label={`Level2`} 
+                label={`Level2`}
                 updateCnt={cnt}
+                className={gridChild}
                 value={s.level2Info}
                 onChange={(e) => data.level2Info = e.currentTarget.value}
             />
@@ -55,8 +57,14 @@ export const Root = ({ data }: { data: RootData; }) => {
     return (<>
         <Intro />
 
-        <div>
-            <Input label={`Root`} updateCnt={cnt} value={s.rootInfo} onChange={(e) => data.rootInfo = e.currentTarget.value}/>
+        <div className={gridParent}>
+            <Input
+                label={`Root`}
+                updateCnt={cnt}
+                className={gridChild}
+                value={s.rootInfo}
+                onChange={(e) => data.rootInfo = e.currentTarget.value}
+            />
 
             <Level1 data={data.level1} />
         </div>
