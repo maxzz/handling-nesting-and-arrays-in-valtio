@@ -4,17 +4,9 @@ import { Button, PartIntro, Section, WrappedInput, gridChild, gridParent, groupF
 import { useRenderCounter } from "../../utils";
 import { classNames } from "@/utils";
 
-const rootWrapped = proxy({
-    rootInfo: "bla bla",
-    level1: {
-        level1Info: "bla blu",
-        level2: {
-            level2Info: "bla blo"
-        }
-    }
-});
+const rootWrapped = proxy(createNewData(0));
 
-export type RootWrapped = typeof rootWrapped;
+type RootWrapped = typeof rootWrapped;
 
 const Level1Wrapped = ({ data }: { data: RootWrapped["level1"]; }) => {
     const cnt = useRenderCounter();

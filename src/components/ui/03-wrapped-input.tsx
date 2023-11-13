@@ -5,7 +5,7 @@ import { useRenderCounter } from "../utils";
 
 type WrappedInputProps = {
     label: string;
-    data: Record<string, string | object>;
+    data: Record<string, string | number | object>;
     prop: string;
     updateCnt?: number;
 } & HTMLAttributes<HTMLDivElement>;
