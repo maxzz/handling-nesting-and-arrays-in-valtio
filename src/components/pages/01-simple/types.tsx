@@ -35,8 +35,12 @@ const arrayData = {
     ]
 };
 
-export const rootArray = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArray2 = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArrayw1 = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArrayw2 = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));
-export const rootArrayWrapped = proxy<TestDataWithArray>(JSON.parse(JSON.stringify(arrayData)));
+function copyObject<T>(obj: T): T {
+    return JSON.parse(JSON.stringify(obj));
+}
+
+export const rootArray = proxy(copyObject(arrayData));
+export const rootArray2 = proxy(copyObject(arrayData));
+export const rootArrayw1 = proxy(copyObject(arrayData));
+export const rootArrayw2 = proxy(copyObject(arrayData));
+export const rootArrayWrapped = proxy(copyObject(arrayData));
