@@ -1,14 +1,13 @@
 import { HTMLAttributes } from "react";
 import { useSnapshot } from "valtio";
-import { useRenderCounter } from "../utils";
 import { Input } from "./02-input";
-
-const inputClasses = "px-2 py-1 ring-primary-500 ring-1 rounded";
+import { useRenderCounter } from "../utils";
 
 type WrappedInputProps = {
     label: string;
     data: Record<string, string | object>;
     prop: string;
+    updateCnt?: number;
 } & HTMLAttributes<HTMLDivElement>;
 
 export const WrappedInput = ({ label, data, prop, ...rest }: WrappedInputProps) => {

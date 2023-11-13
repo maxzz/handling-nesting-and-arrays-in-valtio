@@ -1,7 +1,8 @@
 import { proxy, useSnapshot } from "valtio";
-import { Button, PartIntro, WrappedInput } from "../ui";
-import { useRenderCounter } from "../utils";
+import { Button, PartIntro, WrappedInput, gridChild, gridParent, groupFrameClasses } from "../ui";
 import { ArrayData } from "../proxies";
+import { useRenderCounter } from "../utils";
+import { classNames } from "@/utils";
 
 const rootWrapped = proxy({
     rootInfo: "bla bla",
@@ -17,28 +18,41 @@ export type RootWrapped = typeof rootWrapped;
 
 const Level1Wrapped = ({ data }: { data: RootWrapped["level1"]; }) => {
     const cnt = useRenderCounter();
-    return (
-        <>
-            <WrappedInput label={`Level1 (${cnt})`} data={data} prop="level1Info" />
-            <Level2Wrapped data={data.level2} />
-        </>
-    );
+    return (<>
+        <WrappedInput
+            label={`Level1 (${cnt})`}
+            className={gridChild}
+            data={data}
+            prop="level1Info"
+        />
+
+        <Level2Wrapped data={data.level2} />
+    </>);
 };
 
 const Level2Wrapped = ({ data }: { data: RootWrapped["level1"]["level2"]; }) => {
     const cnt = useRenderCounter();
-    return (
-        <>
-            <WrappedInput label={`Level2 (${cnt})`} data={data} prop="level2Info" />
-        </>
-    );
+    return (<>
+        <WrappedInput
+            label={`Level2 (${cnt})`}
+            className={gridChild}
+            data={data}
+            prop="level2Info"
+        />
+    </>);
 };
 
 const RootWrapped = ({ data }: { data: RootWrapped; }) => {
     const cnt = useRenderCounter();
     return (
-        <div>
-            <WrappedInput label={`Root (${cnt})`} data={data} prop="rootInfo" />
+        <div className={classNames(groupFrameClasses, gridParent)}>
+            <WrappedInput
+                label={`Root (${cnt})`}
+                className={gridChild}
+                data={data}
+                prop="rootInfo"
+            />
+
             <Level1Wrapped data={data.level1} />
         </div>
     );
@@ -71,14 +85,14 @@ const addNew = (idx: number) => ({
 
 export const RootArrayWrapped = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
-    const s = useSnapshot(data);
+    const snap = useSnapshot(data);
     return (
         <>
             <Intro />
 
             <h2>Array ({cnt})</h2>
 
-            {s.objects.map((o, idx) => (
+            {snap.objects.map((o, idx) => (
                 <RootWrapped data={data.objects[idx]} key={o.key} />
             ))}
 

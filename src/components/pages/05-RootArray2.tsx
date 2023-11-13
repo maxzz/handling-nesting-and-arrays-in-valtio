@@ -35,14 +35,14 @@ const addNew = (idx: number) => ({
 
 export const RootArray2 = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
-    const s = useSnapshot(data);
+    const snap = useSnapshot(data);
     return (
         <>
             <Intro />
 
             <h2>Array ({cnt})</h2>
 
-            {s.objects.map((o, i) => (
+            {snap.objects.map((o, i) => (
                 <Root data={data.objects[i]} key={o.key} />
             ))}
 

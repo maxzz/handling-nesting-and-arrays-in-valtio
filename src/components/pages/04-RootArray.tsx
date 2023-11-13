@@ -30,15 +30,15 @@ const addNew = (idx: number) => ({
 
 export const RootArray = ({ data }: { data: ArrayData; }) => {
     const cnt = useRenderCounter();
-    const s = useSnapshot(data);
+    const snap = useSnapshot(data);
     return (
         <>
             <Intro />
 
             <h2>Array ({cnt})</h2>
 
-            {Array.from(Array(s.objects.length).keys()).map((i) => (
-                <Root data={data.objects[i]} key={s.objects[i].key} />
+            {Array.from(Array(snap.objects.length).keys()).map((i) => (
+                <Root data={data.objects[i]} key={snap.objects[i].key} />
             ))}
 
             <Button onClick={() => data.objects.push(addNew(data.objects.length))}>

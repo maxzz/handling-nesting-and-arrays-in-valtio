@@ -38,7 +38,7 @@ export const complexData2 = proxy<ComplexData>(JSON.parse(JSON.stringify(complex
 
 export const ComplexObject = ({ data }: { data: ComplexData; }) => {
     const cnt = useRenderCounter();
-    const s = useSnapshot(data);
+    const snap = useSnapshot(data);
     return (<>
         <Intro />
 
@@ -48,14 +48,14 @@ export const ComplexObject = ({ data }: { data: ComplexData; }) => {
             <Input
                 label="field1"
                 className={gridChild}
-                value={s.field1}
+                value={snap.field1}
                 onChange={(e) => data.field1 = e.currentTarget.value}
             />
 
             <Input
                 label="field2"
                 className={gridChild}
-                value={s.field2}
+                value={snap.field2}
                 onChange={(e) => data.field2 = e.currentTarget.value}
             />
         </div>

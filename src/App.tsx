@@ -12,7 +12,7 @@ import { ComplexObject, ComplexObjectWithWrappedInput, Introduction, Root, RootA
 export default function App() {
     // let t = useSnapshot(state.people[0]);
     return (
-        <div className="px-4">
+        <div className="px-4 mb-12">
             <Introduction />
 
             <RootIntro />
