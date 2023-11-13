@@ -7,7 +7,7 @@ import { classNames } from '@/utils';
 
 export function App2_Main({ className, ...rest }: HTMLAttributes<HTMLDivElement>) {
     return (
-        <div className={classNames("px-4 mb-12", className)} {...rest}>
+        <div className={classNames("mb-12 px-4 max-w-2xl mx-auto", className)} {...rest}>
             <Introduction />
 
             <IntroSimple />
@@ -15,15 +15,11 @@ export function App2_Main({ className, ...rest }: HTMLAttributes<HTMLDivElement>
 
             <RootIntro />
             <RootArrayWrong1 data={rootArrayw1} />
-
             <RootArrayWrong2 data={rootArrayw2} />
-
             <RootArray data={rootArray} />
-
             <RootArray2 data={rootArray2} />
 
             <ComplexObject data={complexData1} />
-
             <ComplexObjectWithWrappedInput data={complexData2} />
 
             <RootArrayWrapped data={rootArrayWrapped} />

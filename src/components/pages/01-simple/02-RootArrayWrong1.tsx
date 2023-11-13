@@ -1,8 +1,8 @@
-import { useSnapshot } from "valtio";
 import { Button, PartIntro, Section } from "../../ui";
 import { useRenderCounter } from "../../utils";
 import { Root } from "./01-root";
 import { TextDataArray } from "./types";
+import { addNew } from "./00-data";
 
 export function RootIntro() {
     return (
@@ -32,17 +32,6 @@ function Intro() {
         </PartIntro>
     );
 }
-
-const addNew = (idx: number) => ({
-    key: idx,
-    rootInfo: "bla bla",
-    level1: {
-        level1Info: "bla blu",
-        level2: {
-            level2Info: "bla blo"
-        }
-    }
-});
 
 export const RootArrayWrong1 = ({ data }: { data: TextDataArray; }) => {
     const cnt = useRenderCounter();

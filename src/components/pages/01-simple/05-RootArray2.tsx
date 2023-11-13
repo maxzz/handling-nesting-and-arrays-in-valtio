@@ -3,6 +3,7 @@ import { useRenderCounter } from "../../utils";
 import { Root } from "./01-root";
 import { TextDataArray } from "./types";
 import { Button, PartIntro, Section } from "../../ui";
+import { addNew } from "./00-data";
 
 function Intro() {
     return (
@@ -21,17 +22,6 @@ function Intro() {
         </PartIntro>
     );
 }
-
-const addNew = (idx: number) => ({
-    key: idx,
-    rootInfo: "bla bla",
-    level1: {
-        level1Info: "bla blu",
-        level2: {
-            level2Info: "bla blo"
-        }
-    }
-});
 
 export const RootArray2 = ({ data }: { data: TextDataArray; }) => {
     const cnt = useRenderCounter();

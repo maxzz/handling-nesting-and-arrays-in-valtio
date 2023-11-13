@@ -3,6 +3,7 @@ import { Button, PartIntro, Section, WrappedInput, gridChild, gridParent, groupF
 import { TextDataArray } from "./types";
 import { useRenderCounter } from "../../utils";
 import { classNames } from "@/utils";
+import { addNew } from "./00-data";
 
 const rootWrapped = proxy({
     rootInfo: "bla bla",
@@ -71,17 +72,6 @@ function Intro() {
         </PartIntro>
     );
 }
-
-const addNew = (idx: number) => ({
-    key: idx,
-    rootInfo: "bla bla",
-    level1: {
-        level1Info: "bla blu",
-        level2: {
-            level2Info: "bla blo"
-        }
-    }
-});
 
 export const RootArrayWrapped = ({ data }: { data: TextDataArray; }) => {
     const cnt = useRenderCounter();
