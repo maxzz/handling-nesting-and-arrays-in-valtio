@@ -15,7 +15,7 @@ const Level1Wrapped = ({ data }: { data: RootWrapped["level1"]; }) => {
             label={`Level1 (${cnt})`}
             className={gridChild}
             data={data}
-            prop="level1Info"
+            fieldName="level1Info"
         />
 
         <Level2Wrapped data={data.level2} />
@@ -29,7 +29,7 @@ const Level2Wrapped = ({ data }: { data: RootWrapped["level1"]["level2"]; }) => 
             label={`Level2 (${cnt})`}
             className={gridChild}
             data={data}
-            prop="level2Info"
+            fieldName="level2Info"
         />
     </>);
 };
@@ -42,7 +42,7 @@ const RootWrapped = ({ data }: { data: RootWrapped; }) => {
                 label={`Root (${cnt})`}
                 className={gridChild}
                 data={data}
-                prop="rootInfo"
+                fieldName="rootInfo"
             />
 
             <Level1Wrapped data={data.level1} />

@@ -34,14 +34,14 @@ export const ComplexObjectWithWrappedInput = ({ data }: { data: ComplexData; }) 
                     label="field1"
                     className={gridChild}
                     data={data}
-                    prop="field1"
+                    fieldName="field1"
                 />
 
                 <WrappedInput
                     label="field2"
                     className={gridChild}
                     data={data}
-                    prop="field2"
+                    fieldName="field2"
                 />
             </div>
         </Section>

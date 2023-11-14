@@ -2,7 +2,7 @@ import { proxy, useSnapshot } from "valtio";
 import { useRenderCounter } from "../../utils";
 import { Input, PartIntro, Section, gridChild, gridParent } from "../../ui";
 
-function Intro() {
+export function IntroComplex() {
     return (<>
         <PartIntro section="Complex objects (multiple editable elements)">
             <p>
@@ -13,7 +13,11 @@ function Intro() {
                 be detrimental to performance.
             </p>
         </PartIntro>
+    </>);
+}
 
+function Intro() {
+    return (<>
         <PartIntro section="Simple inputs (cause more rendering to complex object)" h1={false}>
             {/* <h2>  </h2> */}
             <p>
