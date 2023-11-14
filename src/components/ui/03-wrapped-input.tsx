@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import { useSnapshot } from "valtio";
 import { Input } from "./02-input";
-import { useRenderCounter } from "../utils";
+import { useRenderCounter } from "./04-update-counter";
 
 type WrappedInputProps = {
     label: string;
