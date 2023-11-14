@@ -10,7 +10,7 @@ export function PartIntro({ section, h1 = true, children, ...rest }: { section: 
                 {section}
             </div>
 
-            <div className="text-xs space-y-2">
+            <div className="text-xs lg:text-base space-y-2">
                 {children}
             </div>
         </div>

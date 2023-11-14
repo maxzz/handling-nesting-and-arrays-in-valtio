@@ -1,13 +1,13 @@
 import { HTMLAttributes } from 'react';
 import { Introduction } from '@/components/pages';
 import { IntroSimple, Root, RootIntro, RootArrayWrong1, RootArrayWrong2, RootArray, RootArray2, RootArrayWrapped } from '@/components/pages/01-simple';
-import { ComplexObject, complexData1, ComplexObjectWithWrappedInput, complexData2 } from '@/components/pages/02-complex';
+import { ComplexObject, complexData1, ComplexObjectWithWrappedInput, complexData2, IntroComplex } from '@/components/pages/02-complex';
 import { root, rootArrayw1, rootArrayw2, rootArray, rootArray2, rootArrayWrapped } from '@/components/pages/01-simple/types';
 import { classNames } from '@/utils';
 
 export function App2_Main({ className, ...rest }: HTMLAttributes<HTMLDivElement>) {
     return (
-        <div className={classNames("mb-12 px-4 max-w-2xl mx-auto", className)} {...rest}>
+        <div className={classNames("mb-12 px-4 max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto debug-screens", className)} {...rest}>
             <Introduction />
 
             <IntroSimple />
@@ -19,6 +19,7 @@ export function App2_Main({ className, ...rest }: HTMLAttributes<HTMLDivElement>
             <RootArray data={rootArray} />
             <RootArray2 data={rootArray2} />
 
+            <IntroComplex />
             <ComplexObject data={complexData1} />
             <ComplexObjectWithWrappedInput data={complexData2} />
 
