@@ -1,4 +1,4 @@
-import { useRenderCounter } from "../../utils";
+import { useRenderCounter } from "../../ui/04-update-counter";
 import { WrappedInput } from "../../ui/03-wrapped-input";
 import { ComplexData } from "./06-ComplexObject";
 import { PartIntro, Section, gridChild, gridParent } from "../../ui";

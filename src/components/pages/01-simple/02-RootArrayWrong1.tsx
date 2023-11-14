@@ -1,7 +1,7 @@
 import { Button, PartIntro, Section } from "../../ui";
 import { TestDataWithArray, createNewData } from "./types";
-import { Root } from "./01-root";
-import { useRenderCounter } from "../../utils";
+import { Root } from "./01-RootCommon";
+import { useRenderCounter } from "../../ui/04-update-counter";
 
 export function RootIntro() {
     return (

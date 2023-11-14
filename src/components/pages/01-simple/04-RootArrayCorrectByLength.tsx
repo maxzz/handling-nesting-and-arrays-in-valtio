@@ -1,8 +1,8 @@
 import { useSnapshot } from "valtio";
 import { TestDataWithArray, createNewData } from "./types";
-import { Root } from "./01-root";
+import { Root } from "./01-RootCommon";
 import { Button, PartIntro, Section } from "../../ui";
-import { useRenderCounter } from "../../utils";
+import { useRenderCounter } from "../../ui/04-update-counter";
 
 function Intro() {
     return (
@@ -17,7 +17,7 @@ function Intro() {
     );
 }
 
-export const RootArray = ({ data }: { data: TestDataWithArray; }) => {
+export const RootArrayCorrectByLength = ({ data }: { data: TestDataWithArray; }) => {
     const cnt = useRenderCounter();
     const snap = useSnapshot(data);
     return (
@@ -26,9 +26,15 @@ export const RootArray = ({ data }: { data: TestDataWithArray; }) => {
 
             <h2>Array ({cnt})</h2>
 
-            {Array.from(Array(snap.objects.length).keys()).map((i) => (
-                <Root data={data.objects[i]} key={snap.objects[i].key} />
-            ))}
+            {
+                Array.from(
+                    Array(snap.objects.length).keys()
+                ).map((idx) => (
+                    <Root
+                        data={data.objects[idx]}
+                        key={snap.objects[idx].key}
+                    />
+                ))}
 
             <Button onClick={() => data.objects.push(createNewData(data.objects.length))}>
                 Add

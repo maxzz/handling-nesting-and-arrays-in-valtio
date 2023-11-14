@@ -13,11 +13,11 @@ export type TestData = {
 
 export const createNewData = (idx: number) => ({
     key: idx,
-    rootInfo: "bla bla",
+    rootInfo: "A",
     level1: {
-        level1Info: "bla blu",
+        level1Info: "B",
         level2: {
-            level2Info: "bla blo"
+            level2Info: "C"
         }
     }
 });

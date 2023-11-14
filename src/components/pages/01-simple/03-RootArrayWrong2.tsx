@@ -1,8 +1,8 @@
 import { useSnapshot } from "valtio";
 import { TestDataWithArray, createNewData } from "./types";
-import { Root } from "./01-root";
+import { Root } from "./01-RootCommon";
 import { Button, PartIntro, Section } from "../../ui";
-import { useRenderCounter } from "../../utils";
+import { useRenderCounter } from "../../ui/04-update-counter";
 
 function Intro() {
     return (

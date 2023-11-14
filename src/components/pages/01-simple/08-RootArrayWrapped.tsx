@@ -1,7 +1,7 @@
 import { proxy, useSnapshot } from "valtio";
 import { TestDataWithArray, createNewData } from "./types";
 import { Button, PartIntro, Section, WrappedInput, gridChild, gridParent, groupFrameClasses } from "../../ui";
-import { useRenderCounter } from "../../utils";
+import { useRenderCounter } from "../../ui/04-update-counter";
 import { classNames } from "@/utils";
 
 const rootWrapped = proxy(createNewData(0));
@@ -73,8 +73,11 @@ export const RootArrayWrapped = ({ data }: { data: TestDataWithArray; }) => {
 
             <h2>Array ({cnt})</h2>
 
-            {snap.objects.map((o, idx) => (
-                <RootWrapped data={data.objects[idx]} key={o.key} />
+            {snap.objects.map((item, idx) => (
+                <RootWrapped
+                    data={data.objects[idx]}
+                    key={item.key}
+                />
             ))}
 
             <Button onClick={() => data.objects.push(createNewData(data.objects.length))}>

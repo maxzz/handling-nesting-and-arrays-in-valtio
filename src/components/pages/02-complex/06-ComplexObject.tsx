@@ -1,5 +1,5 @@
 import { proxy, useSnapshot } from "valtio";
-import { useRenderCounter } from "../../utils";
+import { useRenderCounter } from "../../ui/04-update-counter";
 import { Input, PartIntro, Section, gridChild, gridParent } from "../../ui";
 
 export function IntroComplex() {
