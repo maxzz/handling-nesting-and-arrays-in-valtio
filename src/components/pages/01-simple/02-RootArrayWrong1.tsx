@@ -1,7 +1,6 @@
-import { Button, PartIntro, Section } from "../../ui";
+import { Button, PartIntro, Section, UpdateCounterLabel, useRenderCounter } from "../../ui";
 import { TestDataWithArray, createNewData } from "./types";
 import { Root } from "./01-RootCommon";
-import { useRenderCounter } from "../../ui/04-update-counter";
 
 export function RootIntro() {
     return (
@@ -20,7 +19,6 @@ export function RootIntro() {
 function Intro() {
     return (
         <PartIntro section="Wrong 1 - render is efficient but not responsive to the ADD button" h1={false}>
-            {/* <h2></h2> */}
             <p>
                 (02.1) In this example we will use the "proxy" to map the objects into the
                 sub-components this is the "natural" way to do it but it bears a problem
@@ -38,7 +36,7 @@ export const RootArrayWrong1 = ({ data }: { data: TestDataWithArray; }) => {
         <Section>
             <Intro />
 
-            <h2>Array ({cnt})</h2>
+            <UpdateCounterLabel label="Array renders" updateCnt={cnt} />
 
             {data.objects.map((o) => (
                 <Root data={o} key={o.key} />

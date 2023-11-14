@@ -1,6 +1,6 @@
 import { proxy, useSnapshot } from "valtio";
 import { TestDataWithArray, createNewData } from "./types";
-import { Button, PartIntro, Section, WrappedInput, gridChild, gridParent, groupFrameClasses } from "../../ui";
+import { Button, PartIntro, Section, UpdateCounterLabel, WrappedInput, gridChild, gridParent, groupFrameClasses } from "../../ui";
 import { useRenderCounter } from "../../ui/04-update-counter";
 import { classNames } from "@/utils";
 
@@ -71,7 +71,7 @@ export const RootArrayWrapped = ({ data }: { data: TestDataWithArray; }) => {
         <Section>
             <Intro />
 
-            <h2>Array ({cnt})</h2>
+            <UpdateCounterLabel label="Array renders" updateCnt={cnt} />
 
             {snap.objects.map((item, idx) => (
                 <RootWrapped

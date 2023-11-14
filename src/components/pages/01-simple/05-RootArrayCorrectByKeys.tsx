@@ -1,7 +1,7 @@
 import { useSnapshot } from "valtio";
 import { TestDataWithArray, createNewData } from "./types";
 import { Root } from "./01-RootCommon";
-import { Button, PartIntro, Section } from "../../ui";
+import { Button, PartIntro, Section, UpdateCounterLabel } from "../../ui";
 import { useRenderCounter } from "../../ui/04-update-counter";
 
 function Intro() {
@@ -29,7 +29,7 @@ export const RootArrayCorrectByKeys = ({ data }: { data: TestDataWithArray; }) =
         <Section>
             <Intro />
 
-            <h2>Array ({cnt})</h2>
+            <UpdateCounterLabel label="Array renders" updateCnt={cnt} />
 
             {snap.objects.map((item, idx) => (
                 <Root

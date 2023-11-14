@@ -1,6 +1,6 @@
 import { proxy, useSnapshot } from "valtio";
 import { useRenderCounter } from "../../ui/04-update-counter";
-import { Input, PartIntro, Section, gridChild, gridParent } from "../../ui";
+import { Input, PartIntro, Section, UpdateCounterLabel, gridChild, gridParent } from "../../ui";
 
 export function IntroComplex() {
     return (<>
@@ -45,7 +45,7 @@ export const ComplexObject = ({ data }: { data: ComplexData; }) => {
         <Section>
             <Intro />
 
-            <h2>Complex objects ({cnt})</h2>
+            <UpdateCounterLabel label="Complex object renders" updateCnt={cnt} />
 
             <div className={gridParent}>
                 <Input

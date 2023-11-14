@@ -1,7 +1,7 @@
 import { useRenderCounter } from "../../ui/04-update-counter";
 import { WrappedInput } from "../../ui/03-wrapped-input";
 import { ComplexData } from "./06-ComplexObject";
-import { PartIntro, Section, gridChild, gridParent } from "../../ui";
+import { PartIntro, Section, UpdateCounterLabel, gridChild, gridParent } from "../../ui";
 
 function Intro() {
     return (
@@ -27,7 +27,7 @@ export const ComplexObjectWithWrappedInput = ({ data }: { data: ComplexData; }) 
         <Section>
             <Intro />
 
-            <h3>(07) Complex objects with wrapped inputs ({cnt})</h3>
+            <UpdateCounterLabel label="Complex object with wrapped inputs renders" updateCnt={cnt} />
 
             <div className={gridParent}>
                 <WrappedInput

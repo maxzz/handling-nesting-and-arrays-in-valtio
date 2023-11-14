@@ -1,6 +1,9 @@
 export * from "./01-button";
 export * from "./02-input";
 export * from "./03-wrapped-input";
+export * from "./04-update-counter";
+export * from "./05-update-counter-label";
+
 export * from "./part-intro";
 export * from "./part-section";
 

@@ -1,7 +1,6 @@
 import { useSnapshot } from "valtio";
-import { useRenderCounter } from "../../ui/04-update-counter";
 import { TestData } from "./types";
-import { Input, PartIntro, gridChild, gridParent, groupFrameClasses } from "../../ui";
+import { Input, PartIntro, gridChild, gridParent, groupFrameClasses, useRenderCounter } from "../../ui";
 import { classNames } from "@/utils";
 
 export function IntroSimple() {
